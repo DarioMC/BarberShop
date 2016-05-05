@@ -1,0 +1,165 @@
+/****************************Manejo en memoria************************************/
+    public void leerMemoriaClientes()
+    {
+        //Lee los datos almacenados en el txt
+        FileInputStream in;
+        ObjectInputStream entrada;
+        try{
+            in = new FileInputStream("clientes.txt");
+            entrada = new ObjectInputStream (in);
+            //Almaceno los datos del txt en al array de Items
+            clientes = (ArrayList<Cliente>) entrada.readObject();
+            in.close();
+        }
+        catch(Exception e)
+        {}
+    }
+    
+    public void guardarMemoriaClientes()
+    {
+        //Almacena los datos del arreglo en un txt
+        FileOutputStream out;
+        ObjectOutputStream salida;
+        try {
+            
+            out = new FileOutputStream("clientes.txt");
+            salida = new ObjectOutputStream (out);
+            salida.writeObject(Controlador.getClientes());
+            out.close();  
+        } 
+        catch (Exception e)
+        {
+        }
+    }
+    
+    public void leerMemoriaTipoServicio()
+    {
+        //Lee los datos almacenados en el txt
+        FileInputStream in;
+        ObjectInputStream entrada;
+        try{
+            in = new FileInputStream("tipoServicio.txt");
+            entrada = new ObjectInputStream (in);
+            //Almaceno los datos del txt en al array de Items
+            tipoServicio = (ArrayList<TipoServicio>) entrada.readObject();
+            in.close();
+        }
+        catch(Exception e)
+        {}
+    }
+    
+    public void guardarMemoriaTipoServicio()
+    {
+        //Almacena los datos del arreglo en un txt
+        FileOutputStream out;
+        ObjectOutputStream salida;
+        try {
+            
+            out = new FileOutputStream("tipoServicio.txt");
+            salida = new ObjectOutputStream (out);
+            salida.writeObject(Controlador.getTipoServicio());
+            out.close();  
+        } 
+        catch (Exception e)
+        {
+        }
+    }
+    
+    public void leerMemoriaListaEspera()
+    {
+        //Lee los datos almacenados en el txt
+        FileInputStream in;
+        ObjectInputStream entrada;
+        try{
+            in = new FileInputStream("listaEspera.txt");
+            entrada = new ObjectInputStream (in);
+            //Almaceno los datos del txt en al array de Items
+            listaEsperas = (ArrayList<ListaEspera>) entrada.readObject();
+            in.close();
+        }
+        catch(Exception e)
+        {}
+    }
+    
+    public void guardarMemoriaListaEspera()
+    {
+        //Almacena los datos del arreglo en un txt
+        FileOutputStream out;
+        ObjectOutputStream salida;
+        try {
+            
+            out = new FileOutputStream("listaEspera.txt");
+            salida = new ObjectOutputStream (out);
+            salida.writeObject(Controlador.getListaEspera());
+            out.close();  
+        } 
+        catch (Exception e)
+        {
+        }
+    }
+    
+    public void leerMemoriaCitas()
+    {
+        //Lee los datos almacenados en el txt
+        FileInputStream in;
+        ObjectInputStream entrada;
+        try{
+            in = new FileInputStream("citas.txt");
+            entrada = new ObjectInputStream (in);
+            //Almaceno los datos del txt en al array de Items
+            citas = (ArrayList<Cita>) entrada.readObject();
+            in.close();
+        }
+        catch(Exception e)
+        {}
+    }
+    
+    public void guardarMemoriaCitas()
+    {
+        //Almacena los datos del arreglo en un txt
+        FileOutputStream out;
+        ObjectOutputStream salida;
+        try {
+            
+            out = new FileOutputStream("citas.txt");
+            salida = new ObjectOutputStream (out);
+            salida.writeObject(Controlador.getCitas());
+            out.close();  
+        } 
+        catch (Exception e)
+        {
+        }
+    }
+
+    public static ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public static ArrayList<TipoServicio> getTipoServicio() {
+        return tipoServicio;
+    }
+
+    public static ArrayList<Cita> getCitas() {
+        return citas;
+    }
+    
+    public static ArrayList<ListaEspera> getListaEspera() {
+        return listaEsperas;
+    }
+
+    public static void setClientes(ArrayList<Cliente> clientes) {
+        Controlador.clientes = clientes;
+    }
+
+    public static void setTipoServicio(ArrayList<TipoServicio> tipoServicio) {
+        Controlador.tipoServicio = tipoServicio;
+    }
+
+    public static void setCitas(ArrayList<Cita> citas) {
+        Controlador.citas = citas;
+    }
+    
+    public static void setListaEspera(ArrayList<ListaEspera> listaEsperas) {
+        Controlador.listaEsperas = listaEsperas;
+    }
+}
